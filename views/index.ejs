@@ -3,20 +3,40 @@
   <head>
     <title><%= title %></title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     
 
   </head>
   <body>
 
-
+    <nav>
+      <a href="/">Home</a>
+      <a href="/">Bus Fares</a>
+      <a href="/">Log In</a>
+      <a href="/">Sign Up</a>
+    </nav>
+    <body>
     <h1>Map User Location</h1>
     <div id="map"></div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <script src="map.js"></script>
 
+    <div class="Location">
+      <p>Enter where you are and where you want to go below</p><br>
 
+      <div class="form">
+        <div class="form1">
+          <input class="Enter" type="text" id="location" name="location"> 
+          <button class="btn" type="submit"><i class="fas fa-search"></i> Locate Me</button>
+        </div>
+
+        <div class="form2">
+          <input class="Enter" type="text" id="lname" name="lname">
+          <button class="btn" type="submit"><i class="fas fa-bus"></i> Find Me a Bus</button>
+        </div>
+      </div> 
+    </div>
 
 
     
