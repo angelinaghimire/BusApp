@@ -88,3 +88,7 @@ nav {
   background-color: #064420;
   z-index: 1000; /* To ensure it's above other elements */
 }
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
