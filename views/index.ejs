@@ -3,9 +3,31 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <nav>
+    <a href="/">Home</a>
+    <a href="/">Bus Fares</a>
+    <a href="/">Log In</a>
+    <a href="/">Sign Up</a>
+  </nav>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to our <%= title %></p>
+    <!-- <h1><%= title %></h1> -->
+
+
+    <div class="Location">
+      <p>Enter where you are and where you want to go below</p><br>
+
+      <div class="form">
+        <div class="form1">
+          <input class="Enter" type="text" id="location" name="location"> 
+          <button class="btn" type="submit"><i class="fas fa-search"></i> Locate Me</button>
+        </div>
+
+        <div class="form2">
+          <input class="Enter" type="text" id="lname" name="lname">
+          <button class="btn" type="submit"><i class="fas fa-bus"></i> Find Me a Bus</button>
+        </div>
+      </div> 
+    </div>
   </body>
 </html>
