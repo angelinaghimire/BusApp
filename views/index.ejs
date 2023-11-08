@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= title %></title>
-  <!-- <link rel="stylesheet" href="/public/stylesheets/style.css"> -->
+  <link rel="stylesheet" href="style.css">
   <style>
     
 *button{
@@ -21,7 +22,13 @@
   </style>
 </head>
 <body>
-  <button class="location_you_entered" onclick="handleButtonClick('Attarkhel - Purano Buspark')">
+  <% var busStops= busRoutes[0].stops%>
+  <%for(let i=0; i<busStops.length; i++){%>
+    <button class="location_you_entered" onclick="handleButtonClick('<%=busStops[i].stopName%>')">
+        <%=busStops[i].stopName%>
+    </button> <br>
+   <%}%>
+  <!-- <button class="location_you_entered" onclick="handleButtonClick('Attarkhel - Purano Buspark')">
     Attarkhel - Purano Buspark
 </button> <br>
 <button class="location_you_entered" onclick="handleButtonClick('Chakrapath - Parikrama')">
@@ -119,7 +126,7 @@
     
     Kalanki - TIA Airport
     
-</button>
+</button> -->
 <script>
     
 function handleButtonClick(location) {
