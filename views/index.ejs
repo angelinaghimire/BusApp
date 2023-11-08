@@ -13,18 +13,16 @@
     <script src="api.js"></script>
 
     <nav>
-      <a href="/">Home</a>
-      <a href="/">Bus Fares</a>
-      <a href="/">Log In</a>
-      <a href="/">Sign Up</a>
+        <img class="logo" src="/images/logo.png" alt="Logo">
     </nav>
 
-
-  <div id="map"></div>
+    <div id="map">
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+   <script src="map.js"></script>
+   </div>
 
   <div class="Location">
-    <p>Enter where you are and where you want to go below</p><br>
-
+    <p>Enter where you are and where you want to go below.</p><br>
     <div class="form">
       <div class="form1">
         <input class="Enter" type="text" id="location" name="location"> 
@@ -37,9 +35,5 @@
       </div>
     </div> 
   </div>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-  <script src="map.js"></script>
-
 </body>
 </html>

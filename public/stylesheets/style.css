@@ -1,8 +1,28 @@
-
 .ui-helper-hidden-accessible {
   display: none;
 }
-/* Add this to your existing CSS file or in a style tag in your HTML */
+
+.ui-autocomplete {
+  position: absolute;
+  list-style: none;
+  padding: 8px;
+  border: 1px solid #ddd;
+  background-color: white;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 30%;
+}
+
+.ui-autocomplete li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.ui-autocomplete li:hover {
+  background-color: #f1f1f1;
+}
+
 .custom-user-icon {
   display: flex;
   align-items: center;
@@ -18,97 +38,121 @@
   opacity: 80%;
 }
 
-
-#map {height: 400px;
+#map {
+  height: 400px;
   width: 100%;
-  justify-content: center;
-  margin-top:2% ;
+  position: relative;
+  z-index: 1;
 }
-  
-  body {
-    margin: 0;
-    padding: 0;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background-color: #fbf2d5;
-  }
 
-  nav a {
-    color: white;}
-  
-  .Location {
-    text-align: center;
-    padding: 2%;
-    margin-bottom: 10px;
-    background-color: #e4efe7;
-    width: 80%;
-    margin: 0 auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    
-  }
-  
-  p {
-    text-align: center;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  
-  .form1,
-  .form2 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 10px;
-    width: 90%;
-    justify-content: center;
-  }
-  
-  .Enter,
-  .btn {
-    padding: 8px;
-    box-sizing: border-box;
-    margin-bottom: 5px;
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-  }
-  
-  .Enter {
-    width: 60%;
-  } 
-  
-  .btn {
-    background-color: #7fa99b;
-    color: white;
-    border: none;
-    margin-left: 5px;
-    width: 35%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  
-  .btn:hover {
-    background-color: #5c7e6d;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: whitesmoke;
+}
 
-nav {
-  background-color: #064420;
-  padding: 10px; 
+nav a {
+  color: white;
+}
+
+.Location {
+  text-align: center;
+  padding: 3%;
+  background-color: #e4efe7;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  position: relative;
+  font-weight: bolder;
+  z-index: 2; 
+  margin-top: -50px;
+}
+
+p {
+  text-align: center;
+  font-weight: bolder;
+}
+
+.form {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
+}
+
+.form1,
+.form2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 90%;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0px;
+}
+
+.Enter,
+.btn {
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, border-color 0.3s;
+  border: solid 1px #064420;
+  height: 55px;
+  font-size: 18px;
+}
+
+.Enter {
+  width: 60%;
+  margin-right: 0;
+}
+
+.btn {
+  font-size: 16px;
+  background-color: transparent;
+  color: #064420;
+  border-left: none;
+  width: 35%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.btn:hover {
+  box-shadow:  0 0 5px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  font-size: 16.5px;
+}
+
+ nav {
+  background-color: #49796B;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 7px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  font-size: 16px; 
+  font-size: 16px;
   margin-left: auto;
-  font-weight: bold; 
-  justify-content: flex-end;
+  font-weight: bold;
+}
+
+p {
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #064420;
+}
+
+.logo {
+  height: 65px;
+  padding: 5px;
+  margin-left: 20px;
+}
+.Enter:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); 
+  outline: none;
 }

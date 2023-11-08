@@ -1,13 +1,11 @@
 const userIcon = L.divIcon({
   className: 'custom-user-icon',
-  iconSize: [32, 32], // Adjust the size as needed
+  iconSize: [25, 25],
   html: '<div class="circle"></div>',
 });
 
 var map = L.map('map');
 let userMarker, startMarker, destinationMarker;
-
-map.setView([51.505, -0.09], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -20,18 +18,14 @@ function success(pos) {
   const lng = pos.coords.longitude;
   const accuracy = pos.coords.accuracy;
 
-  // Remove existing markers if any
-  if (userMarker) {
-    map.removeLayer(userMarker);
+  if (!userMarker) {
+    userMarker = L.marker([lat, lng], { icon: userIcon }).addTo(map);
+  } else {
+    userMarker.setLatLng([lat, lng]);
   }
 
-  // Add a marker for the user's location
-  userMarker = L.marker([lat, lng], { icon: userIcon }).addTo(map);
+  map.setView([lat, lng], 20);
 
-
-
-
-  // Fit the map to the bounds of the markers
   fitMapToMarkers();
 }
 
@@ -54,7 +48,6 @@ function plotDestination() {
 }
 
 function plotLocation(locationName, type) {
-  // Use Nominatim geocoding service to get coordinates from location name
   const geocodeURL = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(locationName)}`;
 
   fetch(geocodeURL)
@@ -64,21 +57,18 @@ function plotLocation(locationName, type) {
         const lat = data[0].lat;
         const lon = data[0].lon;
 
-        // Remove existing markers based on type
         if (type === 'start' && startMarker) {
           map.removeLayer(startMarker);
         } else if (type === 'destination' && destinationMarker) {
           map.removeLayer(destinationMarker);
         }
 
-        // Add markers based on type
         if (type === 'start') {
           startMarker = L.marker([lat, lon]).addTo(map);
         } else if (type === 'destination') {
           destinationMarker = L.marker([lat, lon]).addTo(map);
         }
 
-        // Fit the map to the bounds of the markers
         fitMapToMarkers();
       } else {
         alert('Location not found. Please enter a valid location.');
@@ -88,9 +78,18 @@ function plotLocation(locationName, type) {
 }
 
 function fitMapToMarkers() {
-  // Create a LatLngBounds object to include all markers
-  const bounds = L.latLngBounds(userMarker.getLatLng(), startMarker ? startMarker.getLatLng() : userMarker.getLatLng(), destinationMarker ? destinationMarker.getLatLng() : userMarker.getLatLng());
+  let bounds = L.latLngBounds(userMarker.getLatLng());
 
-  // Fit the map to the bounds of all markers
+  if (startMarker) {
+    bounds.extend(startMarker.getLatLng());
+  }
+
+  if (destinationMarker) {
+    bounds.extend(destinationMarker.getLatLng());
+  }
+
+  map.fitBounds(bounds);
+
   map.fitBounds(bounds);
 }
+
